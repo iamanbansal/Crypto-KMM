@@ -4,6 +4,8 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
+    kotlin(Dependencies.Plugins.serialization)
+    id(Dependencies.Plugins.sqlDelight)
 }
 
 version = "1.0"
@@ -26,23 +28,45 @@ kotlin {
         frameworkName = "shared"
         podfile = project.file("../iosApp/Podfile")
     }
-    
+
+
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation(Dependencies.KtorVersion.core)
+                implementation(Dependencies.KtorVersion.clientSerialization)
+                implementation(Dependencies.SQLDelight.runtime)
+                implementation(Dependencies.Kotlinx.serialization)
+
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation(Dependencies.KtorVersion.android)
+                implementation(Dependencies.SQLDelight.androidDriver)
+            }
+        }
+
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
             }
         }
-        val iosMain by getting
+
+
+        val iosMain by getting {
+            dependencies {
+                implementation(Dependencies.KtorVersion.ios)
+                implementation(Dependencies.SQLDelight.nativeDriver)
+            }
+        }
         val iosTest by getting
     }
 }
@@ -53,5 +77,11 @@ android {
     defaultConfig {
         minSdkVersion(21)
         targetSdkVersion(30)
+    }
+}
+
+sqldelight {
+    database(name = "CryptoDatabase") { // This will be the name of the generated database class.
+        packageName = "database"
     }
 }
