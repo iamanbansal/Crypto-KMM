@@ -19,6 +19,10 @@ object Dependencies {
         const val ios = "io.ktor:ktor-client-ios:${ktorVersion}"
     }
 
+    object Coroutines{
+        const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinVersion"
+        const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinVersion"
+    }
 
     object SQLDelight {
         private const val sqlDelightVersion = "1.4.3"
@@ -34,11 +38,12 @@ object Dependencies {
     }
 
     object Compose {
-        private const val composeVersion = "1.0.0-beta05"
+        const val composeVersion = "1.0.0-beta07"
         const val runtime = "androidx.compose.runtime:runtime:${composeVersion}"
         const val runtimeLiveData = "androidx.compose.runtime:runtime-livedata:${composeVersion}"
         const val ui = "androidx.compose.ui:ui:${composeVersion}"
         const val material = "androidx.compose.material:material:${composeVersion}"
+        const val materialIcon = "androidx.compose.material:material-icons-core:${composeVersion}"
         const val uiTooling = "androidx.compose.ui:ui-tooling:${composeVersion}"
         const val foundation = "androidx.compose.foundation:foundation:${composeVersion}"
         const val compiler = "androidx.compose.compiler:compiler:${composeVersion}"
