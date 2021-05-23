@@ -5,7 +5,10 @@ import com.aman.cryptotracker.network.ApiKey.COIN_MARKET_KEY
 import io.ktor.client.*
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.*
+import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 
 /**
@@ -24,13 +27,18 @@ class CryptoApi {
 
                 serializer = KotlinxSerializer(json)
             }
+
+            install(Logging) {
+                logger = Logger.DEFAULT
+                level = LogLevel.HEADERS
+            }
         }
     }
 
 
-    suspend fun getCryptoData(limit:Int = DEFAULT_LIMIT):CryptoResponse {
+    suspend fun getCryptoData(limit:Int = DEFAULT_LIMIT):CryptoResponse = withContext(Dispatchers.Default) {
 
-       return httpClient.get(URL){
+       return@withContext httpClient.get(URL){
             parameter("start", 1)
             parameter("limit", limit)
             parameter("convert", "USD")
