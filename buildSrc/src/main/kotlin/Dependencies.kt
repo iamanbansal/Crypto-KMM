@@ -10,12 +10,16 @@ object Dependencies {
     object Plugins{
         const val serialization = "plugin.serialization"
         const val sqlDelight = "com.squareup.sqldelight"
+
+        const val kotlinAndroidVersion = "1.4.32"
+        const val kotlinAndroid = "org.jetbrains.kotlin.android"
     }
     object KtorVersion {
         private const val ktorVersion = "1.5.4"
         const val core = "io.ktor:ktor-client-core:${ktorVersion}"
         const val clientSerialization = "io.ktor:ktor-client-serialization:${ktorVersion}"
         const val android = "io.ktor:ktor-client-android:${ktorVersion}"
+        const val logging = "io.ktor:ktor-client-logging:${ktorVersion}"
         const val ios = "io.ktor:ktor-client-ios:${ktorVersion}"
     }
 
@@ -47,15 +51,8 @@ object Dependencies {
         const val uiTooling = "androidx.compose.ui:ui-tooling:${composeVersion}"
         const val foundation = "androidx.compose.foundation:foundation:${composeVersion}"
         const val compiler = "androidx.compose.compiler:compiler:${composeVersion}"
-
-        private const val constraintLayoutComposeVersion = "1.0.0-alpha03"
-        const val constraintLayout =
-            "androidx.constraintlayout:constraintlayout-compose:${constraintLayoutComposeVersion}"
-
-        private const val composeActivitiesVersion = "1.3.0-alpha03"
-        const val activity = "androidx.activity:activity-compose:${composeActivitiesVersion}"
-
-        private const val composeNavigationVerson = "1.0.0-alpha10"
-        const val navigation = "androidx.navigation:navigation-compose:${composeNavigationVerson}"
+        const val constraintLayout = "androidx.constraintlayout:constraintlayout-compose:.0.0-alpha03"
+        const val activity = "androidx.activity:activity-compose:1.3.0-alpha08"
+        const val navigation = "androidx.navigation:navigation-compose:1.0.0-alpha10"
     }
 }

@@ -35,6 +35,7 @@ kotlin {
             dependencies {
                 implementation(Dependencies.KtorVersion.core)
                 implementation(Dependencies.KtorVersion.clientSerialization)
+                implementation(Dependencies.KtorVersion.logging)
                 implementation(Dependencies.SQLDelight.runtime)
                 implementation(Dependencies.Kotlinx.serialization)
 
@@ -44,6 +45,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
+                implementation(Dependencies.Coroutines.core)
             }
         }
         val androidMain by getting {

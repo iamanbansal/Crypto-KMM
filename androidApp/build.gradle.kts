@@ -32,6 +32,7 @@ android {
     }
 
     composeOptions {
+        kotlinCompilerVersion = "1.4.32"
         kotlinCompilerExtensionVersion = Dependencies.Compose.composeVersion
     }
 
@@ -55,5 +56,7 @@ dependencies {
     implementation(Dependencies.Compose.materialIcon)
     // Integration with observables
     implementation(Dependencies.Compose.runtimeLiveData)
+    //Compose Activity
+    implementation(Dependencies.Compose.activity)
 
 }
