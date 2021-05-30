@@ -1,12 +1,13 @@
 package com.aman.cryptotracker.network
 
 import com.aman.cryptotracker.entity.Data
+import io.ktor.client.features.logging.*
 
 
 /**
  * Created by Aman Bansal on 22/05/21.
  */
-class CryptoService(private val api: CryptoApi) {
+class CryptoRepository(private val api: CryptoApi) {
 
 
     @Throws(Exception::class)

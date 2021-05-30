@@ -12,51 +12,46 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.aman.cryptotracker.entity.Data
 import com.aman.cryptotracker.network.CryptoApi
-import com.aman.cryptotracker.network.CryptoService
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-
+import com.aman.cryptotracker.network.CryptoRepository
+import com.aman.cryptotracker.viewmodel.CryptoViewModel
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.text.TextStyle
 
 class MainActivity : AppCompatActivity() {
 
-    private val scope = CoroutineScope(Dispatchers.Main)
-    private val service = CryptoService(CryptoApi())
+    private var viewModel = CryptoViewModel(CryptoRepository((CryptoApi())))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             MaterialTheme {
-                val dataList = remember { mutableStateOf<List<Data>>(emptyList()) }
-                scope.launch {
-                    dataList.value = service.getCryptoData()
-                }
-
-                CryptoListView(list = dataList.value)
+                CryptoListView(viewModel)
             }
-
         }
+
+        viewModel.getCryptoData()
     }
 }
 
 @Composable
-fun CryptoListView(list: List<Data>) {
+fun CryptoListView(viewModel: CryptoViewModel) {
+    val dataList by viewModel.list.collectAsState()
+
     return LazyColumn(
         verticalArrangement = Arrangement.spacedBy(10.dp),
         modifier = Modifier.fillMaxWidth()
     ) {
 
-        items(list) { data ->
+        items(dataList ) { data ->
 
-            CoinItem(data = data)
+            CoinItem(data)
         }
 
     }
@@ -81,7 +76,8 @@ fun CoinItem(data: Data) {
 
                 Text(
                     text = data.name.toString(),
-                    modifier = Modifier.padding(2.dp)
+                    modifier = Modifier.padding(2.dp),
+                    style = MaterialTheme.typography.h5
                 )
                 Text(text = "$${data.quote?.uSD?.price?.toFloat()}")
             }
