@@ -10,9 +10,6 @@ object Dependencies {
     object Plugins{
         const val serialization = "plugin.serialization"
         const val sqlDelight = "com.squareup.sqldelight"
-
-        const val kotlinAndroidVersion = "1.4.32"
-        const val kotlinAndroid = "org.jetbrains.kotlin.android"
     }
     object KtorVersion {
         private const val ktorVersion = "1.5.4"
@@ -42,7 +39,9 @@ object Dependencies {
     }
 
     object Compose {
-        const val composeVersion = "1.0.0-beta07"
+        const val composeVersion = "1.0.0-beta08"
+        const val kotlinCompilerVersion = "1.5.10"
+
         const val runtime = "androidx.compose.runtime:runtime:${composeVersion}"
         const val runtimeLiveData = "androidx.compose.runtime:runtime-livedata:${composeVersion}"
         const val ui = "androidx.compose.ui:ui:${composeVersion}"
