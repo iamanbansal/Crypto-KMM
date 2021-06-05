@@ -6,12 +6,18 @@ plugins {
     id("com.android.library")
     kotlin(Dependencies.Plugins.serialization)
     id(Dependencies.Plugins.sqlDelight)
+    id("org.jetbrains.compose") version Dependencies.Compose.composeDesktopVersion
 }
 
 version = "1.0"
 
 kotlin {
     android()
+    jvm("desktop") {
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+    }
 
     val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
         if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
@@ -38,6 +44,11 @@ kotlin {
                 implementation(Dependencies.KtorVersion.logging)
                 implementation(Dependencies.SQLDelight.runtime)
                 implementation(Dependencies.Kotlinx.serialization)
+                api(compose.runtime)
+                api(compose.foundation)
+                api(compose.material)
+                api(compose.animation)
+                api(compose.ui)
 
             }
         }
@@ -45,7 +56,6 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-                implementation(Dependencies.Coroutines.core)
             }
         }
         val androidMain by getting {
@@ -69,7 +79,10 @@ kotlin {
                 implementation(Dependencies.SQLDelight.nativeDriver)
             }
         }
+
         val iosTest by getting
+
+//        val jvmMain by getting
     }
 }
 
