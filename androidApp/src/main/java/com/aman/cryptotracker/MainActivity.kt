@@ -12,7 +12,6 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -40,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+
 @Composable
 fun CryptoListView(viewModel: CryptoViewModel) {
     val dataList by viewModel.list.collectAsState()
@@ -49,7 +49,7 @@ fun CryptoListView(viewModel: CryptoViewModel) {
         modifier = Modifier.fillMaxWidth()
     ) {
 
-        items(dataList ) { data ->
+        items(dataList) { data ->
 
             CoinItem(data)
         }

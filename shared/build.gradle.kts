@@ -6,18 +6,14 @@ plugins {
     id("com.android.library")
     kotlin(Dependencies.Plugins.serialization)
     id(Dependencies.Plugins.sqlDelight)
-    id("org.jetbrains.compose") version Dependencies.Compose.composeDesktopVersion
+    id("org.jetbrains.compose")
 }
 
 version = "1.0"
 
 kotlin {
     android()
-    jvm("desktop") {
-        compilations.all {
-            kotlinOptions.jvmTarget = "11"
-        }
-    }
+    jvm("desktop")
 
     val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
         if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
@@ -47,8 +43,8 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
-                api(compose.animation)
-                api(compose.ui)
+//                api(compose.animation)
+//                api(compose.ui)
 
             }
         }
@@ -82,7 +78,6 @@ kotlin {
 
         val iosTest by getting
 
-//        val jvmMain by getting
     }
 }
 

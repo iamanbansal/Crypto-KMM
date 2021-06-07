@@ -26,7 +26,7 @@ object Dependencies {
     }
 
     object SQLDelight {
-        const val sqlDelightVersion = "1.5.0"
+        const val sqlDelightVersion = "1.4.4"
         const val runtime = "com.squareup.sqldelight:runtime:${sqlDelightVersion}"
         const val androidDriver = "com.squareup.sqldelight:android-driver:${sqlDelightVersion}"
         const val nativeDriver = "com.squareup.sqldelight:native-driver:${sqlDelightVersion}"
@@ -39,7 +39,7 @@ object Dependencies {
     }
 
     object Compose {
-        const val composeVersion = "1.0.0-beta08"
+        const val composeVersion = "1.0.0-beta07"
         const val kotlinCompilerVersion = "1.5.10"
         const val composeDesktopVersion = "0.4.0"
 
@@ -52,7 +52,7 @@ object Dependencies {
         const val foundation = "androidx.compose.foundation:foundation:${composeVersion}"
         const val compiler = "androidx.compose.compiler:compiler:${composeVersion}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout-compose:.0.0-alpha03"
-        const val activity = "androidx.activity:activity-compose:1.3.0-alpha08"
+        const val activity = "androidx.activity:activity-compose:1.3.0-beta01"
         const val navigation = "androidx.navigation:navigation-compose:1.0.0-alpha10"
     }
 }

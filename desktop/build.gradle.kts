@@ -3,7 +3,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version Dependencies.Compose.composeDesktopVersion
+    id("org.jetbrains.compose")
 }
 
 group = "com.aman.crypto"
@@ -11,9 +11,8 @@ version = "1.0"
 
 kotlin {
     jvm {
-        compilations.all {
-            kotlinOptions.jvmTarget = "11"
-        }
+        withJava()
+
     }
     sourceSets {
         val jvmMain by getting {
@@ -22,7 +21,6 @@ kotlin {
                 implementation(compose.desktop.currentOs)
             }
         }
-        val jvmTest by getting
     }
 }
 

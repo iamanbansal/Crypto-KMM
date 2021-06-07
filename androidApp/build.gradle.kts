@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("org.jetbrains.compose")
 }
 
 android {
@@ -29,11 +30,14 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs += "-Xallow-jvm-ir-dependencies"
+        useIR = true
+
     }
 
     composeOptions {
         kotlinCompilerVersion = Dependencies.Compose.kotlinCompilerVersion
-        kotlinCompilerExtensionVersion = Dependencies.Compose.composeVersion
+//        kotlinCompilerExtensionVersion = Dependencies.Compose.composeVersion
     }
 
 }
@@ -44,13 +48,13 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
 
-//    implementation(Dependencies.Compose.ui)
+    implementation(Dependencies.Compose.ui)
     // Tooling support (Previews, etc.)
     implementation(Dependencies.Compose.uiTooling)
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-//    implementation(Dependencies.Compose.foundation)
+    implementation(Dependencies.Compose.foundation)
     // Material Design
-//    implementation(Dependencies.Compose.material)
+    implementation(Dependencies.Compose.material)
     // Material design icons
     implementation(Dependencies.Compose.materialIcon)
     // Integration with observables
