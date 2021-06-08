@@ -10,3 +10,4 @@ pluginManagement {
 rootProject.name = "CryptoTracker"
 include(":androidApp")
 include(":shared")
+include(":desktop")

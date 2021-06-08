@@ -1,10 +1,10 @@
 object Dependencies {
 
-    const val kotlinVersion = "1.5.0"
+    const val kotlinVersion = "1.5.10"
 
     object  Build {
         const val serialzationPlugin = "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
-        const val sqlDelightPlugin = "com.squareup.sqldelight:gradle-plugin:$kotlinVersion"
+        const val sqlDelightPlugin = "com.squareup.sqldelight:gradle-plugin:${SQLDelight.sqlDelightVersion}"
     }
 
     object Plugins{
@@ -26,7 +26,7 @@ object Dependencies {
     }
 
     object SQLDelight {
-        private const val sqlDelightVersion = "1.4.3"
+        const val sqlDelightVersion = "1.5.0"
         const val runtime = "com.squareup.sqldelight:runtime:${sqlDelightVersion}"
         const val androidDriver = "com.squareup.sqldelight:android-driver:${sqlDelightVersion}"
         const val nativeDriver = "com.squareup.sqldelight:native-driver:${sqlDelightVersion}"
@@ -40,6 +40,7 @@ object Dependencies {
 
     object Compose {
         const val composeVersion = "1.0.0-beta08"
+        const val composeDesktopVersion = "0.4.0"
         const val kotlinCompilerVersion = "1.5.10"
 
         const val runtime = "androidx.compose.runtime:runtime:${composeVersion}"
