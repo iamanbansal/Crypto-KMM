@@ -18,6 +18,7 @@ object Dependencies {
         const val android = "io.ktor:ktor-client-android:${ktorVersion}"
         const val logging = "io.ktor:ktor-client-logging:${ktorVersion}"
         const val ios = "io.ktor:ktor-client-ios:${ktorVersion}"
+        const val jvmJava = "io.ktor:ktor-client-java:$ktorVersion"
     }
 
     object Coroutines{

@@ -74,6 +74,12 @@ kotlin {
             }
         }
         val iosTest by getting
+
+        val desktopMain by getting {
+            dependencies {
+                implementation(Dependencies.KtorVersion.jvmJava)
+            }
+        }
     }
 }
 
