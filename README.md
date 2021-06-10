@@ -19,9 +19,17 @@ This is the codebase of Crypto currency Tracking Kotlin Multiplatform App.
 ### TODOs
 - Local DB implementation
 - SwiftUI
-- Jetpack compose for desktop
+- ~~Jetpack compose for desktop~~
+
+## Screenshots
+### Android
+<img class='header-img' src="https://github.com/iamanbansal/Crypto-KMM/blob/main/media/android.png?raw=true" />
+
+### Desktop
+<img class='header-img' src="https://github.com/iamanbansal/Crypto-KMM/blob/main/media/desktop.png?raw=true" />
 
 
+## Structure
 <img class='header-img' src="https://github.com/iamanbansal/Crypto-KMM/blob/main/media/structure.png?raw=true" />
 <br>
 
