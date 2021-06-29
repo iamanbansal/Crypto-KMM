@@ -78,6 +78,8 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 implementation(Dependencies.KtorVersion.jvmJava)
+                implementation(Dependencies.SQLDelight.jvmDriver)
+
             }
         }
     }

@@ -17,12 +17,12 @@ import com.aman.cryptotracker.network.CryptoApi
 import com.aman.cryptotracker.network.CryptoRepository
 import com.aman.cryptotracker.viewmodel.CryptoViewModel
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.runtime.collectAsState
+import com.aman.cryptotracker.database.Database
+import com.aman.cryptotracker.database.DatabaseDriverFactory
 
 
-
-val viewModel = CryptoViewModel(CryptoRepository((CryptoApi())))
+val viewModel = CryptoViewModel(CryptoRepository(CryptoApi(), Database(DatabaseDriverFactory())))
 
 
 @Composable

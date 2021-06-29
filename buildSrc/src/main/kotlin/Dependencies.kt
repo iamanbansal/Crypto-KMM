@@ -31,6 +31,7 @@ object Dependencies {
         const val runtime = "com.squareup.sqldelight:runtime:${sqlDelightVersion}"
         const val androidDriver = "com.squareup.sqldelight:android-driver:${sqlDelightVersion}"
         const val nativeDriver = "com.squareup.sqldelight:native-driver:${sqlDelightVersion}"
+        const val jvmDriver = "com.squareup.sqldelight:sqlite-driver:${sqlDelightVersion}"
     }
 
     object Kotlinx {

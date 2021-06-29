@@ -1,0 +1,46 @@
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS CoinData (
+id INTEGER NOT NULL,
+name TEXT,
+symbol TEXT,
+slug TEXT,
+numMarketPairs INTEGER,
+dateAdded TEXT,
+tags TEXT,
+maxSupply REAL,
+circulatingSupply REAL,
+totalSupply REAL,
+cmcRank INTEGER,
+lastUpdated TEXT,
+quote TEXT,
+PRIMARY KEY(id)
+);
+
+
+insertCoinData:
+INSERT OR REPLACE INTO CoinData (id,name,symbol,slug,numMarketPairs,dateAdded,tags,maxSupply,circulatingSupply,totalSupply,cmcRank,lastUpdated,quote)
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);
+
+getAllCoinData:
+SELECT * FROM CoinData;
+
+deleteAllCoins:
+DELETE FROM CoinData;
+
+--CREATE TABLE IF NOT EXISTS `CryptoData` (
+--`id` INTEGER,
+-- `name` TEXT, `symbol` TEXT, `slug` TEXT, `numMarketPairs` INTEGER, `dateAdded` TEXT, `tags` TEXT, `maxSupply` REAL, `circulatingSupply` REAL, `totalSupply` REAL, `cmcRank` INTEGER, `lastUpdated` TEXT, `quote` TEXT, PRIMARY KEY(`id`))
+--
+
+-- CREATE TABLE hockeyPlayer (
+--   player_number INTEGER NOT NULL,
+--   full_name TEXT NOT NULL
+-- );
+
+-- selectAll:
+-- SELECT *
+-- FROM hockeyPlayer;
