@@ -1,6 +1,6 @@
 object Dependencies {
 
-    const val kotlinVersion = "1.5.10"
+    const val kotlinVersion = "1.7.20"
 
     object  Build {
         const val serialzationPlugin = "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
@@ -40,8 +40,8 @@ object Dependencies {
     }
 
     object Compose {
-        const val composeVersion = "1.0.0-beta08"
-        const val composeDesktopVersion = "0.4.0"
+        const val composeVersion = "1.3.0"
+        const val composeDesktopVersion = "1.2.0"
         const val kotlinCompilerVersion = "1.5.10"
 
         const val runtime = "androidx.compose.runtime:runtime:${composeVersion}"
