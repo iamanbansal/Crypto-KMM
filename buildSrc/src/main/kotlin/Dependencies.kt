@@ -22,8 +22,9 @@ object Dependencies {
     }
 
     object Coroutines{
-        const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinVersion"
-        const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinVersion"
+        const val coroutineVersion = "1.6.4"
+        const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion"
+        const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
     }
 
     object SQLDelight {

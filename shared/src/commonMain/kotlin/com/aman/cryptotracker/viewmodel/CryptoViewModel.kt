@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 class CryptoViewModel (private val cryptoRepository:CryptoRepository) {
 
 
-    private val mainScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+    private val mainScope = CoroutineScope(SupervisorJob())
     private val _list = MutableStateFlow<List<Data>>(emptyList())
     val list:StateFlow<List<Data>> = _list
 

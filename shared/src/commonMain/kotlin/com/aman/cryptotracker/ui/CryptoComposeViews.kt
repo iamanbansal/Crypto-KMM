@@ -9,6 +9,8 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -16,10 +18,6 @@ import com.aman.cryptotracker.entity.Data
 import com.aman.cryptotracker.network.CryptoApi
 import com.aman.cryptotracker.network.CryptoRepository
 import com.aman.cryptotracker.viewmodel.CryptoViewModel
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.runtime.collectAsState
-
 
 
 val viewModel = CryptoViewModel(CryptoRepository((CryptoApi())))
