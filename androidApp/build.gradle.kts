@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 33
     defaultConfig {
         applicationId = "com.aman.cryptotracker"
-        minSdkVersion(21)
-        targetSdkVersion(30)
+        minSdk = 23
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
     }
@@ -33,7 +33,6 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerVersion = Dependencies.Compose.kotlinCompilerVersion
         kotlinCompilerExtensionVersion = Dependencies.Compose.composeVersion
     }
 

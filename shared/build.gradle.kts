@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
@@ -15,19 +13,17 @@ kotlin {
     android()
     jvm("desktop")
 
-    val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
-        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
-            ::iosArm64
-        else
-            ::iosX64
-
-    iosTarget("ios") {}
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
         ios.deploymentTarget = "14.1"
-        frameworkName = "shared"
+        framework {
+            baseName = "shared"
+        }
         podfile = project.file("../iosApp/Podfile")
     }
 
@@ -35,11 +31,12 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(Dependencies.KtorVersion.core)
-                implementation(Dependencies.KtorVersion.clientSerialization)
-                implementation(Dependencies.KtorVersion.logging)
+                implementation(Dependencies.Ktor.core)
+                implementation(Dependencies.Ktor.contentNegotiation)
+                implementation(Dependencies.Ktor.clientSerialization)
+                implementation(Dependencies.Ktor.logging)
+                implementation(Dependencies.Ktor.serialization)
                 implementation(Dependencies.SQLDelight.runtime)
-                implementation(Dependencies.Kotlinx.serialization)
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
@@ -54,7 +51,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(Dependencies.KtorVersion.android)
+                implementation(Dependencies.Ktor.androidClient)
                 implementation(Dependencies.SQLDelight.androidDriver)
             }
         }
@@ -66,29 +63,42 @@ kotlin {
             }
         }
 
-
-        val iosMain by getting {
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-                implementation(Dependencies.KtorVersion.ios)
+                implementation(Dependencies.Ktor.iosClient)
                 implementation(Dependencies.SQLDelight.nativeDriver)
             }
         }
-        val iosTest by getting
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
+        val iosTest by creating {
+            dependsOn(commonTest)
+            iosX64Test.dependsOn(this)
+            iosArm64Test.dependsOn(this)
+            iosSimulatorArm64Test.dependsOn(this)
+        }
 
         val desktopMain by getting {
             dependencies {
-                implementation(Dependencies.KtorVersion.jvmJava)
+                implementation(Dependencies.Ktor.javaClient)
             }
         }
     }
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 33
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(30)
+        minSdk = 23
     }
 }
 

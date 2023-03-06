@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Dependencies.kotlinVersion}")
-        classpath("com.android.tools.build:gradle:4.2.1")
+        classpath("com.android.tools.build:gradle:7.4.2")
         classpath(Dependencies.Build.serialzationPlugin)
         classpath(Dependencies.Build.sqlDelightPlugin)
         classpath("org.jetbrains.compose:compose-gradle-plugin:${Dependencies.Compose.composeDesktopVersion}")

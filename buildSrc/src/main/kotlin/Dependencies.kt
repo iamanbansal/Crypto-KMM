@@ -11,14 +11,16 @@ object Dependencies {
         const val serialization = "plugin.serialization"
         const val sqlDelight = "com.squareup.sqldelight"
     }
-    object KtorVersion {
-        private const val ktorVersion = "1.5.4"
+    object Ktor {
+        private const val ktorVersion = "2.2.3"
         const val core = "io.ktor:ktor-client-core:${ktorVersion}"
         const val clientSerialization = "io.ktor:ktor-client-serialization:${ktorVersion}"
-        const val android = "io.ktor:ktor-client-android:${ktorVersion}"
+        const val androidClient = "io.ktor:ktor-client-android:${ktorVersion}"
         const val logging = "io.ktor:ktor-client-logging:${ktorVersion}"
-        const val ios = "io.ktor:ktor-client-ios:${ktorVersion}"
-        const val jvmJava = "io.ktor:ktor-client-java:$ktorVersion"
+        const val iosClient = "io.ktor:ktor-client-ios:${ktorVersion}"
+        const val javaClient = "io.ktor:ktor-client-java:$ktorVersion"
+        const val contentNegotiation = "io.ktor:ktor-client-content-negotiation:$ktorVersion"
+        const val serialization = "io.ktor:ktor-serialization-kotlinx-json:$ktorVersion"
     }
 
     object Coroutines{
@@ -28,7 +30,7 @@ object Dependencies {
     }
 
     object SQLDelight {
-        const val sqlDelightVersion = "1.5.0"
+        const val sqlDelightVersion = "1.5.5"
         const val runtime = "com.squareup.sqldelight:runtime:${sqlDelightVersion}"
         const val androidDriver = "com.squareup.sqldelight:android-driver:${sqlDelightVersion}"
         const val nativeDriver = "com.squareup.sqldelight:native-driver:${sqlDelightVersion}"
@@ -37,12 +39,11 @@ object Dependencies {
     object Kotlinx {
         private const val kotlinxDatetimeVersion = "0.1.1"
         const val datetime = "org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}"
-        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1"
     }
 
     object Compose {
         const val composeVersion = "1.3.0"
-        const val composeDesktopVersion = "1.2.0"
+        const val composeDesktopVersion = "1.3.0"
         const val kotlinCompilerVersion = "1.5.10"
 
         const val runtime = "androidx.compose.runtime:runtime:${composeVersion}"
