@@ -1,7 +1,6 @@
 package com.aman.cryptotracker.network
 
 import com.aman.cryptotracker.entity.Data
-import io.ktor.client.features.logging.*
 
 
 /**
